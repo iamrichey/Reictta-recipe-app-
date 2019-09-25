@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="./styles/style.css">
+   <link rel="stylesheet" href="https://use.typekit.net/wjb3tpl.css">
+   <link href="https://fonts.googleapis.com/css?family=Alegreya:700i&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.typekit.net/wjb3tpl.css">
+   <link rel="shortcut icon" href="./assets/images/recipe logo.png" type="image/x-icon">
+   <title>RECITTA</title>
+</head>
+<body class="background-img">
+   <header><a href="./index.html">Recitta </a>
+   <p>Save and never Forget those awesome recipes</p>
+</header>
+   <div class="container">
+      
+      <div class="wrapper">
+         <div class="controllers">
+            <div class="search-bar">
+            <input type="search" name="searchRecipe" id="search" placeholder="Search">
+            </div>
+            <select name="sort-Filter" id="sort-Filter">
+               <option value="byEdited">Sort by last edited</option>
+               <option value="byCreated">Sort by recently created</option>
+               <option value="byAlphabetically">Sort alphabetically</option>
+            </select>
+         </div>
+         <div id="recipes" class="recipes">
+
+         </div>
+         <button class="newRecipe" id="newRecipeBtn"><img src="./assets/icons/icons8-add-64.png" alt="New Recipe"></button>
+      </div>
+   </div>
+   <footer class="main-footer"> Designed by Blvck &copy;2019</footer>
+</body>
+
+<script src="./scripts/index-bundle.js"></script>
+</html>
