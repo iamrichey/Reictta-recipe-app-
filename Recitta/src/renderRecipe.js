@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { getFilters } from './filters'
-import { sortRecipes, getRecipes} from './recipes'
+import { sortRecipes, getRecipes, removeRecipe} from './recipes'
 
 
 
@@ -13,6 +13,7 @@ const generateRecipeDom = (recipe) => {
    const contentEl = document.createElement('p');
    const ingredientStat = document.createElement('span')
    const EditedStatusEl = document.createElement('p');
+   const deleteRecipeButton = document.createElement('button')
 
    recipeDiv.classList.add('recipe');
    EditedStatusEl.classList.add('edited-details');
@@ -20,6 +21,13 @@ const generateRecipeDom = (recipe) => {
    recipe.recipeName.length > 0 ? contentEl.textContent = recipe.recipeName : contentEl.textContent = 'unnamed recipe';
 
    recipeDiv.appendChild(contentEl);
+
+
+   deleteRecipeButton.classList.add('home-recipe_remove-button')
+   deleteRecipeButton.textContent = 'x'
+   deleteRecipeButton.addEventListener('click', (e) => {
+      removeRecipe(recipe.id)
+   })
 
 
    
@@ -36,6 +44,7 @@ const generateRecipeDom = (recipe) => {
    ingredientStat.textContent = `${acquiredIngredientStat(recipe)}. (${recipe.ingredients.length} listed)`
    ingredientStat.classList.add('ingredientStat')
    recipeDiv.insertBefore(ingredientStat, EditedStatusEl)
+   recipeDiv.appendChild(deleteRecipeButton)
    
 
    return recipeLinkEl
@@ -64,6 +73,7 @@ const renderRecipes = () => {
    }else {
       const emptyMessage = document.createElement('p');
       emptyMessage.textContent = `No saved recipes. Click the floating button to Add recipe`;
+      emptyMessage.style.color = 'wheat'
       emptyRecipeCont.appendChild(emptyMessage);
    };
 
